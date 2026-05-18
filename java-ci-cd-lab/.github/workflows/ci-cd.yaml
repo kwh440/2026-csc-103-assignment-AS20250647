@@ -2,27 +2,25 @@ name: Java CI pipeline
 
 on:
   push:
-    branches:
-      - main
+   branches:
+    - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+ build:
+   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+   steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
 
-      - name: Set Up JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '21'
+    - name: Set Up JDk
+      uses: actions/setup-java@v4
+      with: 
+        distribution: 'temurin'
+        java-version: '21'
 
-      - name: Compile Java Program
-        working-directory: java-ci-cd-lab
-        run: javac Main.java
+    - name: Compile Java Program
+      run: javac Main.java
 
-      - name: Run Java Program
-        working-directory: java-ci-cd-lab
-        run: java Main
+    - name: Run Java Program
+      run: java Main 
